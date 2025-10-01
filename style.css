@@ -1,0 +1,812 @@
+@import url('https://fonts.googleapis.com/css2?family=Manrope:wght@200..800&family=Pacifico&display=swap');* {
+    padding: 0;
+    margin: 0;
+}
+
+.material-symbols-outlined {
+  font-variation-settings:
+  'FILL' 0,
+  'wght' 400,
+  'GRAD' 0,
+  'opsz' 24;
+  transition: font-variation-settings 0.5s ease-in-out;
+  
+}
+.material-symbols-outlined.filled {
+    font-variation-settings:
+    'FILL' 1,
+    'wght' 400,
+    'GRAD' 0,
+    'opsz' 24
+}
+
+
+:root{
+    --color1:#E9E9E9;
+    --color2:#F2F2F2;
+    --color3:#BBFBFF;
+    --color4:#8DD8FF;
+    --color5:#4E71FF; 
+    --color6:#5409DA;
+    --hover:#000;
+    --gradient:linear-gradient(45deg,var(--color4),var(--color5),var(--color6));
+    --gradient-vertical:linear-gradient(135deg,var(--color4),var(--color5),var(--color6));
+}
+body {
+    top: 6em;
+    position: relative;
+    font-family: "Manrope",sans-serif;
+    width: 100%;
+    max-width: 100vw;
+    height: fit-content;
+    background-color: var(--color2);
+    box-sizing: border-box;
+    overflow-x: hidden;
+}
+.header {
+    z-index: 10;
+    position:fixed;
+    top: 0;
+    width: 100%;
+    height: 6em;
+    max-width: 100vw;
+    background-color: var(--color1);
+    padding: 1em;
+    display: flex;
+    align-items: center ;
+    justify-content: space-between;
+    box-shadow: 0px 15px 15px 2px rgba(0,0,0,0.2);
+    box-sizing: border-box;
+}
+/*logo*/
+.headerLogo {
+    display: inline-block;
+    position: relative;
+    width: 20%;
+    min-width: 7em;
+    height: fit-content;
+    font-size: 2em;
+    padding: 0.3em;
+    font-weight: 700;  
+    background-clip: text;
+    border-radius: 8px;
+    color: transparent;
+    background-image: var(--gradient);
+    transition: all 0.3s ease-in-out;
+}
+.headerLogo:hover {
+    transform: translateY(-.2rem) scale(1.05) rotate(2deg);
+    
+}
+.headerLogo > span:nth-of-type(1){
+    font-family: "pacifico" ;
+}
+.headerLogo > span:nth-of-type(2){
+    font-weight: 900;
+}
+
+
+/*nav buttons*/
+.headerNav {
+    background-color:transparent;
+    display: flex;
+    width: fit-content;
+    position: relative;
+    height: 100%;
+    align-items: center;
+    gap: 1em;
+}
+.headerNav ul {
+    flex-wrap: nowrap;
+    width: fit-content;
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: space-around ;
+    background-color: transparent;
+    height: 100%;
+    box-sizing: border-box;
+}
+.headerNav ul li  {
+    display: flex;
+    text-decoration:none;
+    list-style-type: none;
+    padding: 0.2em 0.5em;
+    border-radius: 8px;
+    transition: all 0.2s ease-in-out;
+    white-space: nowrap;
+}
+
+
+li .button {
+    font-size: 1.3em;
+    font-weight: 700;
+    height: 100%;
+    width: 100%;
+    display: inline-flex;
+    align-items: center;
+    position: relative;
+    gap: 0.2em;
+    text-decoration: none;
+    transition: all 0.3s ease-in-out;
+    &:hover {
+        transform: translateY(-2px) scale(1.01);
+    }
+}
+
+.bgSlider {
+    position: absolute;
+    background-color: var(--color5);
+    padding: .25em;
+    border-radius: 8px;
+    width: 0;
+    height: 50%;
+    top: 0;
+    left: 0;
+    margin: 1em 0 ;
+    z-index: -1;
+    transform: translate(-.25em,-.25em);
+    transition: all 0.3s ease-in-out;
+    box-shadow: 0px 2px 10px 2px rgba(0,0,0,0.3);
+}
+
+/*Hamburger*/
+.hamburgerWrapper {
+    display: none;
+    right: 0;
+    background-color: transparent;
+    position: relative;
+    aspect-ratio: 1/1;
+    height: 100%;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 0.5em;
+    border-radius: 8px;
+    transition: all 0.2s ease-in-out;
+    &:hover {
+        background-color: rgba(160, 160, 160, 0.3);
+    }
+}
+
+.hamburgerWrapper > span {
+    width: 70%;
+    height: 10%;
+    background-color: var(--color5);
+    border-radius: 10px;
+    transform-origin: center;
+    transition: all 0.2s ease-in-out;
+}
+
+/*Scroller*/
+.scrollerContainer {
+    z-index: 10;
+    position: fixed;
+    background-color: rgba(120,120,120);
+    height: 0.3em;
+    width: 100%;
+    top: 6em;
+}
+
+.scroller {
+    position: relative;
+    width: 0%;
+    height: 100%;
+    background-image: var(--gradient);
+}
+
+.main {
+    background-color: var(--color2);
+    width: 100%;
+    max-width: 100vw;
+    height: 100vh;
+}
+
+.homeSection {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    max-width: 100vw;
+    height: 90vh;    
+}
+.homeWrapper {
+    width: 100%;
+    height: 90%;
+    display: flex;
+    flex-direction: column;
+    position: relative;
+    white-space: nowrap;
+    align-items: center;
+    
+}
+.homeWrapper p, .homeWrapper div {
+    position: relative;
+    font-weight: 900;
+    height: fit-content;
+    display: flex;
+}
+.homeWrapper > p:nth-of-type(1){
+    opacity: 0;
+    font-size: clamp(3.5em, 10vw, 10em);
+    right: 12vw;
+    transform: translateX(100px);
+    animation: fadeIn 1s forwards;
+}
+.homeWrapper p:nth-of-type(2) {
+    opacity: 0;
+    font-size: clamp(3.5em, 10vw, 10em);
+    left: 12vw;    
+    transform: translateX(-100px);
+    animation: fadeIn 1s .3s forwards;
+}
+.imagineSpanDeco {
+    display: inline-block;
+    width: 100%;
+    height: 100%;
+    position: relative;
+}
+
+.imagineSpanDeco::before {
+    content: "";
+    bottom: 8%;
+    height: 10%;
+    width: 100%;
+    position: absolute;
+    display: inline-block;
+    background-image: var(--gradient);
+    opacity: 0;
+    transform: scaleX(0.001);
+    transform-origin: left;
+    transition: all 0.2s ease-in-out;
+    animation: fadeIn 1.4s 1.3s ease forwards; 
+}
+
+.imagineSpanDeco:hover::before {
+    content: "";
+    height: 8%;
+}
+.homeWrapper > div{
+    position: relative;
+    font-size: clamp(2.3em, 9vw, 10em);
+    display: flex;
+    flex-direction:row; 
+    height: 1.4em;
+    overflow: hidden;
+    left: 0.5em;
+    opacity: 0;
+    transform: translateY(100px);
+    animation: fadeIn 1s .8s forwards;
+}
+.homeWrapper ul {
+    display: flex;
+    flex-direction:column;
+    position: relative;
+    width: 4em;
+    margin-top: 0em;
+    transition: all 1s ease-in-out;
+    opacity: 0;
+    transform: translateX(100px);
+    animation: fadeIn 1s 1.1s forwards, swipe 15s 3s infinite;
+}
+.homeWrapper ul > li {
+    font-family: "pacifico", serif;
+    background-image: var(--gradient);
+    background-clip: text;
+    display: inline-block;
+    position: relative;
+    top: -0.25em;
+    left: 0.25em;
+    color: transparent;
+}
+@keyframes fadeIn {
+    0% {
+        opacity: 0;
+    } 50% {
+        opacity: 0.8;
+    } 100% {
+        opacity: 1;
+        transform: translate(0,0) scaleX(1);
+    }
+}
+@keyframes swipe {
+    0%,100% {
+        transform: translateY(0em);
+    }
+    12.5%,87.5%{
+        transform: translateY(-1.6em);
+    }
+    25%, 75%{
+        transform: translateY(-3.1em);
+    }
+    37.5% , 62.5%{
+        transform: translateY(-4.4em);
+    }
+    50%{
+        transform: translateY(-5.7em);
+    }
+}
+
+
+
+.aboutSection {
+    display: flex;
+    width: 100%;
+    height:100vh;
+    border-bottom: 1px solid black;
+    padding: 1em;
+    box-sizing: border-box;
+}
+
+.aboutSVG {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+}
+
+.aboutArticle {
+    width: 100%;
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    grid-template-rows: repeat(5, 1fr);
+    padding: 1.5em;
+    grid-column-gap: 2em;
+    grid-row-gap: 2em;
+}
+
+.aboutArticle > div {
+    border-radius: 10px;
+    display: flex;
+    color: #000;
+    box-shadow: 0px 2px 5px .5px rgba(0, 0, 0, 0.3);
+    transition: all 0.3s ease-in-out;
+    background-color: #000;
+    opacity: 0;
+    border: solid 1.5px rgba(0, 0, 0, 0.2);
+    transform: scale(1.15) translateY(50px);
+    position: relative;
+    /* stacking context to contain backdrop-filter and avoid artifacts */
+    z-index: 0;
+    isolation: isolate;
+    overflow-y: hidden;
+
+} 
+.aboutArticle > div.visible {
+    opacity: 1;
+    transform: none;
+    background-color: transparent;
+}
+.aboutArticle > div.visible:hover::before {
+    height: 100%;
+    transform: rotate(0);
+    border-radius: 0;
+}
+
+
+.aboutArticle > div.visible::after {
+    content: "";
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    background-color: #e9e9e98e;
+    /* keep overlay inside stacking context and place it behind content */
+    z-index: 0;
+    backdrop-filter: blur(50px);
+    -webkit-backdrop-filter: blur(50px);
+    pointer-events: none;
+}
+.aboutArticle > div.visible::before {
+    content: "";
+    width: 100%;
+    height: 0;
+    top: 0;
+    left: 0;
+    position: absolute;
+    background-image: var(--gradient);
+    transform: translate(-50%,-50%) rotate(-45deg) ;
+    border-radius: 50px;
+    /* decorative gradient behind the blur but inside the stacking context */
+    z-index: -1;
+    transition: all 0.5s ease-in-out;
+    pointer-events: none;
+}
+
+.div1 { 
+    display: flex;
+    height: 100%;
+    width: 100%;
+    font-size: clamp(1em,1.5vw,1.8em);
+    white-space: nowrap;
+    justify-content: center;
+    align-items: center;
+    font-weight: 200;
+}
+.div1 > h1 > span {
+    font-weight: 900; 
+    background-image: var(--gradient);
+    background-clip: text;
+    color: transparent;
+}
+.div2 {
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+}
+.div2 > aside {
+    width: 40%;
+    height: 100%;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-evenly;
+    box-sizing: border-box;
+}
+.div2 > aside > figure {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 50%;
+    width: 90%;
+    margin: 2em 1em 0 1em;
+}
+.div2 > aside > figure > span {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 1em;
+    height: 1em;
+    font-size: clamp(10em,12vw,15em) ;
+    aspect-ratio: 1/1;
+    line-height: 1;
+}
+.div2 > aside > h2 {
+    display: flex;
+    justify-content: center;
+    width: 90%;
+    font-family: "pacifico",sans-serif;
+    background-image: var(--gradient);
+    background-clip: text;
+    font-size: clamp(1em,2vw,2em);
+    color: transparent;
+}
+
+.div2 > article {
+    width: 60%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    padding: 1em;
+    box-sizing: border-box;
+}
+.pWrapper {
+    width: 100%;
+    position: relative;
+    top: 4vh;
+    height: 40%;
+    padding: 1em 0;
+    display: flex;
+    align-items: center;
+}
+.pWrapper >p {
+    font-size: clamp(0.7em,1vw,1.3em);
+    font-weight: 400;
+    white-space: nowrap;
+    position: relative;
+    display: inline-block;
+}
+.pWrapper > p::before {
+    content: "";
+    position: absolute;
+    width: .6em;
+    height: 80%;
+    top: 10%;
+    left: -7.5%;
+    background-image: var(--gradient-vertical);
+}
+
+.buttonWrapper {
+    width: 100%;
+    height: 50%;
+    display: flex;
+    position: relative;
+    justify-content: right;
+    align-items: end;
+}
+.discoverButton {
+    width: fit-content;
+    height: auto;
+    backdrop-filter: blur(10px);
+    background: linear-gradient(125deg,rgba(255,255,255,0.6),rgba(255,255,255,0.3));
+    box-shadow: 0px 1px 5px 0px rgba(0, 0, 0, 0.5);
+    padding: 1vh 0.6em; 
+    gap: 1em;
+    border: none;
+    color: #121212;
+    display: flex;
+    position: relative;
+    border-radius: 10px;
+    justify-content: space-between;
+    display: flex;
+    transition: all 0.1s ease-in-out;
+    align-items: center;
+    
+}
+.discoverButton:active {
+    background-color: rgb(225,225,225);
+}
+.discoverButton:hover span:first-child {
+    transform: scale(1.08);
+    background-size: 100%;
+    background-position: 0 0 ;
+    color: transparent;
+}
+
+/* ensure direct children of a visible card are above the blur overlay */
+.aboutArticle > div.visible > * {
+    z-index: 2;
+}
+.discoverButton span:first-child{
+    position: relative;
+    font-size: 1.3em;
+    flex: 1;
+    text-align: left;
+    font-weight: 400;
+    white-space: nowrap;
+    transition: all 0.3s ease-in-out;
+    background-image: var(--gradient-vertical);
+    color: #121212;
+    background-size: 0%;
+    background-position: 6em 0;
+    background-repeat: no-repeat;
+    background-clip: text;
+}
+.discoverButton span:last-child {
+    pointer-events: none;
+    width: 30%;
+    aspect-ratio: 1/1;
+    
+    border-radius: 6px;
+    position: relative;
+    transition: right 0.3s ease-in-out, width 0.3s ease-in-out, background-color 0.1s ease-in-out;
+    color: var(--color2);
+    background-color: black ;
+    font-size: 1em;
+}
+.buttonArrow {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 100%;
+    font-size: 3em;
+}
+
+.div3, .div4 { 
+    flex-direction: column;
+    font-size: clamp(1em,1.5vw,1.8em);
+    white-space: nowrap;
+    justify-content: center;
+    align-items: center;
+}
+.div3 > h1, .div4 > h1 {
+    color: transparent;
+    background-image: var(--gradient);
+    background-clip: text;
+}
+.div5Wrapper {
+    width: 100%;
+    height: 100%;
+    padding: 1em;
+}
+
+
+
+.div8Wrapper {
+    height: 100%;
+    width: 100%;
+    display: flex;
+    overflow-x: auto;
+    overflow-y: hidden;
+    flex-wrap: nowrap;
+    scroll-snap-type:x mandatory;
+    scrollbar-width: none;
+    -ms-overflow-style: none;
+}
+.div8Wrapper::-webkit-scrollbar {
+    display: none;
+}
+.div8Wrapper > figure {
+    scroll-snap-align: center;
+    flex: 0 0 auto;
+    position: relative;
+    display: flex;
+    justify-content: center;
+    width: 100%;
+    height: 100%;
+    padding-top: 1.5em;
+
+}
+.div8Wrapper > figure > span {
+    transform: perspective(1000px);
+    transform-style: preserve-3d;
+    width: 80%;
+    height: 80%;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+    border-radius: 10px;
+    background-color: #e9e9e99a;
+    box-shadow: 0px 2px 10px 0px rgba(0, 0, 0, 0.2);
+}
+.div8Wrapper > figure > span> a {
+    transform: translateZ(40px);
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-evenly;
+    text-decoration: none;
+    color: #121212;
+    font-weight: 800;
+    font-size: 1.2em;
+
+}
+.div8Wrapper > figure > span > a > img {
+    height: 60%;
+    aspect-ratio: 1/1;
+}
+.div8Dots {
+    display: flex;
+    bottom: 2.5%;
+    left: 40%;
+    border-radius: 12px;
+    position: absolute;
+    width: 20%;
+    height: 7.5%;
+    align-items: center;
+    justify-content: space-evenly;
+}
+.div8Dots > span {
+    position: relative;
+    border-radius: 20px;
+    height: 40%;
+    aspect-ratio: 1/1;
+    background-color: rgba(0,0,0,0.15);
+    transition: background-color 0.3s ease-in-out;
+}
+.div8Dots > span.active {
+    background-color: rgba(0,0,0,0.4);
+}
+
+.div1 { grid-area: 1 / 1 / 2 / 3; } /*row start / column start / row end / column end*/
+.div2 { grid-area: 2 / 1 / 4 / 3; }
+.div3 { grid-area: 1 / 3 / 2 / 4; }
+.div4 { grid-area: 1 / 4 / 2 / 5; }
+.div5 { grid-area: 2 / 3 / 5 / 5; }
+.div6 { grid-area: 4 / 1 / 6 / 3; }
+.div7 { grid-area: 5 / 3 / 6 / 5; }
+.div8 { grid-area: 1 / 5 / 3 / 6;}
+.div9 { grid-area: 3 / 5 / 6 / 6;}
+
+.serviceWrapper {
+    height: 80vh;
+}
+.portfolioWrapper {
+    height: 80vh;
+}
+.contactWrapper {
+    height: 80vh;
+    background-color: red;
+}
+
+/*media queries*/
+@media screen and (max-width:1100px) {
+    .homeWrapper {
+        padding: 2em 0;
+    }
+    .aboutSection {
+        height: 150vh;
+    }
+    .aboutArticle {
+        grid-template-columns: repeat(4, 1fr);
+        grid-template-rows: repeat(8, 1fr);
+    }
+    .div8 { grid-area: 6 / 1 / 9 / 3; }
+    .div9 { grid-area: 6 / 3 / 9 / 5; }
+}
+
+@media screen and (max-width: 890px){
+    .homeSection {
+        height: 80vh;
+    }
+    .homeWrapper {
+        justify-content: center;
+    }
+
+
+    .homeWrapper > p:nth-of-type(1) {
+        right: 0;
+        font-size: clamp(3.5em, 12vw, 8em);
+    }
+    .homeWrapper > p:nth-of-type(2) {
+        left: 0;
+        font-size: clamp(3.5em, 12vw, 8em);
+    }
+    .homeWrapper > div{
+    font-size: clamp(2.3em, 8vw, 7em);
+    }
+
+    .aboutSection {
+        height: 300vh;
+    }
+    .aboutArticle {
+        grid-template-columns: repeat(2, 1fr);
+        grid-template-rows: repeat(15, 1fr);
+    }
+    .div2 {
+        flex-direction: column;
+    }
+    .div2 > aside {
+        width: 100%;
+        height: 35%;
+    }
+    .div2 > aside > figure {
+        display: none;
+    }
+    .div2 > aside > h2 {
+        font-size: 3em;
+    }
+    .div2 > article {
+        width: 100%;
+        height: 65%;
+        padding: 0;
+    }
+    .div2 > article > .pWrapper {
+        margin: 0;
+        top: 0;
+        justify-content: center;
+    }
+    .div2 > article > .pWrapper {
+        text-align: center;
+        font-size: 1.2em;
+        padding: 2em 0.5em;
+        box-sizing: border-box;
+    }
+    .pWrapper > p {
+        padding-bottom:0.5em;
+    }
+    .div2 > article > .pWrapper > p::before {
+        left: -10%;
+        right: 0;
+        top: 100%;
+        border-radius: 10px;
+        height: 5%;
+        width: 120%;
+    }
+    .div2 > article > .buttonWrapper {
+        justify-content: center;
+        box-sizing: border-box;
+        align-items: center;
+    }
+    .div3 { grid-area: 9 / 1 / 10 / 2;}
+    .div4 { grid-area: 9 / 2 / 10 / 3; }
+    .div5 { grid-area: 10 / 1 / 12 / 3; }
+    .div7 { grid-area: 12 / 1 / 13 / 3; }
+    .div9 { grid-area: 13 / 1 / 15 / 3; }
+
+
+
+    .headerNav ul {
+        display: none;
+    }
+    .hamburgerWrapper {
+        display: flex;
+    }
+}
