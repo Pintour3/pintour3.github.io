@@ -68,7 +68,7 @@ document.addEventListener("DOMContentLoaded",()=>{
         slider.style.width = `${rect.width}px`
         slider.style.height = `${rect.height}px`
         slider.style.left = `${rect.left - containerRect.left + 2}px`
-        slider.style.top = `3px`
+        slider.style.top = `0.2em`
         rects.forEach((elt,index)=>{
             const icon = elt.querySelector("span")
             if(index == sliderPosition) {
@@ -120,7 +120,7 @@ document.addEventListener("DOMContentLoaded",()=>{
             const percentY = offsetY / rect.height
             const moveX = (percentX-0.5)*0.5// 5px of liberty
             const moveY = (percentY-0.5)*0.5
-            container.style.transition = "background-color 0.2s ease-in-out"
+            container.style.transition = "background-color 0.2s ease-in-out,border 0.2s ease-in-out,box-shadow 0.2s ease-in-out"
             container.style.transform = `translate(${moveX}em,${moveY}em) scale(1.01)`
         })
         container.addEventListener("mouseleave",()=>{
@@ -145,7 +145,6 @@ document.addEventListener("DOMContentLoaded",()=>{
         })
     },{threshold:0.2})
     const aboutArticleDiv = document.querySelectorAll(".aboutArticle > div")
-    console.log(aboutArticleDiv)
     aboutArticleDiv.forEach(div=>{
         observer2.observe(div)
     })
