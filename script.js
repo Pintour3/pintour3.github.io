@@ -67,14 +67,15 @@ document.addEventListener("DOMContentLoaded",()=>{
         const rect = elt.parentElement.getBoundingClientRect() //taking the box size of the "li", parent of .button ("a")
         slider.style.width = `${rect.width}px`
         slider.style.height = `${rect.height}px`
-        slider.style.left = `${rect.left - containerRect.left}px`
+        slider.style.left = `${rect.left - containerRect.left + 2}px`
+        slider.style.top = `3px`
         rects.forEach((elt,index)=>{
             const icon = elt.querySelector("span")
             if(index == sliderPosition) {
-                elt.style.color = "white"
+                elt.style.color = "var(--color2)"
                 icon.classList.add("filled")
             } else {
-                elt.style.color = "black"
+                elt.style.color = "var(--color1)"
                 icon.classList.remove("filled")
             }
         })
